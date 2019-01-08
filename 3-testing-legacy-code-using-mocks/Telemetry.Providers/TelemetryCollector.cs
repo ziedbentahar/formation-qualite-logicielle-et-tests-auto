@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Telemetry
+namespace Telemetry.Services
 {
     public class TelemetryCollector : ITelemetryCollector
     {

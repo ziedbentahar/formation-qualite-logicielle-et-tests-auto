@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Telemetry
+namespace Telemetry.Services
 {
     public class TelemetryCollector : ITelemetryCollector
     {
         Random _random = new Random((int)DateTime.UtcNow.Ticks);
 
-        private IEnumerable<Telemetry> GenerateTelemetries()
+        private IEnumerable<TelemetryData> GenerateTelemetries()
         {
             const int numberOfTelemetries = 10;
 
@@ -18,21 +18,21 @@ namespace Telemetry
                     var random = _random.Next(3);
                     if(item == 0)
                     {
-                        return new Telemetry
+                        return new TelemetryData
                         {
                             Kind = "Pressure",
                             Value = $"{_random.Next(50)} psi"
                         };
                     } else if(item == 1)
                     {
-                        return new Telemetry
+                        return new TelemetryData
                         {
                             Kind = "Temperature",
                             Value = $"{_random.Next(80)} °F"
                         };
                     } else
                     {
-                        return new Telemetry
+                        return new TelemetryData
                         {
                             Kind = "Error",
                         };
@@ -41,7 +41,7 @@ namespace Telemetry
 
         }
 
-        public IEnumerable<Telemetry> Collect() => GenerateTelemetries();
+        public IEnumerable<TelemetryData> Collect() => GenerateTelemetries();
         
     }
 }

@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Telemetry.Services</AssemblyName>
+    <RootNamespace>Telemetry.Services</RootNamespace>
   </PropertyGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace Telemetry
+namespace Telemetry.Services
 {
     public class ErrorEventArgs : EventArgs
     {

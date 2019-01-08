@@ -1,6 +1,6 @@
-﻿namespace Telemetry
+﻿namespace Telemetry.Services
 {
-    public class Telemetry
+    public class TelemetryData
     {
         public string Kind { get; set; }
         public string Value { get; set; }

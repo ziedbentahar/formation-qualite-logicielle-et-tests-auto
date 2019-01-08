@@ -1,7 +1,7 @@
-﻿namespace Telemetry
+﻿namespace Telemetry.Services
 {
     public interface ITelemetryProcessor
     {
-        void Process(Telemetry telemetry);
+        void Process(TelemetryData telemetry);
     }
 }

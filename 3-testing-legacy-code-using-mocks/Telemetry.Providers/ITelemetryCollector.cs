@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace Telemetry
+namespace Telemetry.Services
 {
     public interface ITelemetryCollector
     {
-        IEnumerable<Telemetry> Collect();
+        IEnumerable<TelemetryData> Collect();
     }
 }
