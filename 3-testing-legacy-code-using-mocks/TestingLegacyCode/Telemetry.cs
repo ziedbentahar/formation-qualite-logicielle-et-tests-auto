@@ -1,4 +1,4 @@
-﻿namespace TestingLegacyCode
+﻿namespace Telemetry
 {
     public class Telemetry
     {

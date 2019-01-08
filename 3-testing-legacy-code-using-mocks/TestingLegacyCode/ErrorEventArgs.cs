@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace TestingLegacyCode
+namespace Telemetry
 {
     public class ErrorEventArgs : EventArgs
     {

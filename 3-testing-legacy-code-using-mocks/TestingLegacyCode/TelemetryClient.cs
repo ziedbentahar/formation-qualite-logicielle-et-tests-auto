@@ -1,54 +1,33 @@
 ﻿
 using System;
-using System.IO;
-using System.Timers;
 
-namespace TestingLegacyCode
+namespace Telemetry
 {
+
+
     public class TelemetryClient
     {
-        private readonly TelemetryCollector _collector = new TelemetryCollector();
-        private Timer _timer;
-        public event EventHandler<EventArgs> ErrorDetected;
+        private readonly ITelemetryCollector _telemetryCollector;
+        private readonly Func<string, ITelemetryProcessor> _processorFactory;
+        private readonly IScheduler _scheduler;
 
-        public TelemetryClient()
+        public TelemetryClient(ITelemetryCollector telemetryCollector, IScheduler scheduler, Func<string, ITelemetryProcessor> processorFactory)
         {
-            _collector = new TelemetryCollector();
+            _telemetryCollector = telemetryCollector;
+            _processorFactory = processorFactory;
+            _scheduler = scheduler;
         }
-
+        
+        public event EventHandler<EventArgs> ErrorDetected;
+        
         private void GetDataFromCollector()
         {
-            var telemetries = _collector.Collect();
+            var telemetries = _telemetryCollector.Collect();
 
             foreach (var item in telemetries)
             {
-                if(item.Kind == "Pressure")
-                {
-                    // Write the telemetry + date time to pressure file when pressure > 30 psi
-                    if(int.Parse(item.Value.Split(' ')[0]) > 30)
-                    {
-                        using (StreamWriter writer = new StreamWriter("pressures.txt", true))
-                        {
-                            writer.Write($"[{DateTime.Now}] {item.Value}");
-                        }
-                    }
-
-                }
-                else if(item.Kind == "Temperature")
-                {
-                    // temparature should be converted to Degree when in fahrenheit
-                    var valueInDegree = int.Parse(item.Value.Split(' ')[0]) - 32  * 5/9;
-                    // Write the temparature + date time to temparature file
-                    using (StreamWriter writer = new StreamWriter("temparatures.txt", true))
-                    {
-                        writer.Write($"[{DateTime.Now}] {valueInDegree} °C");
-                    }
-                }
-                else
-                {
-                    // Raise error event to be consumed by consumers of TelemetryClient
-                    ErrorDetected?.Invoke(this, new ErrorEventArgs(item.Value));
-                }
+                _processorFactory(item.Kind).Process(item);
+                
             }
                 
 
@@ -56,20 +35,19 @@ namespace TestingLegacyCode
 
         public void Start()
         {
-            _timer = new Timer(5000);
-            _timer.AutoReset = true;
-            _timer.Elapsed += Timer_Elapsed;
-            _timer.Start();
+            _scheduler.Elapsed += _scheduler_Elapsed;
+            _scheduler.Start();
         }
 
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        private void _scheduler_Elapsed(object sender, EventArgs e)
         {
             GetDataFromCollector();
         }
+        
 
         public void Stop()
         {
-            _timer.Stop();
+            _scheduler.Stop();
         }
     }
 }
