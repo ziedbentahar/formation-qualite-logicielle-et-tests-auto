@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telemetry.Services", "TestingLegacyCode\Telemetry.Services.csproj", "{69BEA480-100A-4155-8500-932EAF3B6077}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telemetry.Tests", "Telemetry.Tests\Telemetry.Tests.csproj", "{DEBDD9CA-F274-449B-9335-109DE5C0612C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telemetry.Tests", "Telemetry.Tests\Telemetry.Tests.csproj", "{DEBDD9CA-F274-449B-9335-109DE5C0612C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telemetry.Specs", "Telemetry.Specs\Telemetry.Specs.csproj", "{805956BB-7408-45E8-BAA1-77578F10A680}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DEBDD9CA-F274-449B-9335-109DE5C0612C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEBDD9CA-F274-449B-9335-109DE5C0612C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEBDD9CA-F274-449B-9335-109DE5C0612C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{805956BB-7408-45E8-BAA1-77578F10A680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{805956BB-7408-45E8-BAA1-77578F10A680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{805956BB-7408-45E8-BAA1-77578F10A680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{805956BB-7408-45E8-BAA1-77578F10A680}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
