@@ -41,4 +41,28 @@ L'instruction `git remote add`: configure le repository local en lui définissan
 
 12 - Ouvrir la solution TTAuto sous visual studio et apportez des modifications au projet
 
-12 -
+13 - Dans le panel "Team explorer" ouvrir le menu déroulant et selectionner "Modifications"
+
+14 - Dans le message, tapez le nuémo du work item précédé par #. #42 par exemple
+
+15 - Clickez sur "Validez-tout", "Synchronisez" et puis sur "Poussez", allez sur TFS et vérifier que les nouveaux changements sont pris en compte. Vérifiez également que le workitem est associé aux nouveau changements de code
+
+16 - sur TFS créer un nouveau workitem. Sur visual studio créer une nouvelle branche dédiée à cette feature. 
+Vous pouvez également créer une banche avec cette commande `git checkout -b <le nom de la branche>`
+
+Note : Il est préferable de respecter une convention de nommage des branches
+
+17 - Allez sur TFS dans le repository et constacter le texte qui vous invite à créer une pull request. Cliquez sur ce lien.
+
+18 - Remplir les champs de l'écran "New Pull Request" et renseigner un "Reviwer"
+
+19 - Completez la pull request: Cette action va merge la feature branch dans master
+
+20 - Sous TFS allez dans l'écran de configuration du projet et cliquez sur Repos > policies et configurer les politiques de branches: 
+Définissez une politique adéquate à vos pratiques de développement
+
+21 - Retourner dans la solution et créer un nouveau tag "0.1", poussez le tag
+
+22 - Configurer une nouvelle définition de build pour le projet
+
+
