@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E3DFA37D-4C36-4FF9-8B32-E5D262481997}</ProjectGuid>
+    <ProjectGuid>{4A8929BC-2AF3-4B22-A01D-F71192384B18}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AutomaticLightSwitcher</RootNamespace>
-    <AssemblyName>AutomaticLightSwitcher</AssemblyName>
+    <RootNamespace>FizzBuzz</RootNamespace>
+    <AssemblyName>FizzBuzz</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LightSwitcher.cs" />
-    <Compile Include="LightSwitcherController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
