@@ -63,8 +63,6 @@ namespace Telemetry.Tests
             });
 
             Func<string, ITelemetryProcessor> processorFactory = (string telemetryType) => telemetryProcessor;
-            
-
 
             //Act
             var telemetryClient = new TelemetryClient(telemetryCollector, scheduler, processorFactory);

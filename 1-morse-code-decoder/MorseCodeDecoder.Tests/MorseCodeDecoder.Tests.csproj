@@ -54,6 +54,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MorseCodeDecoderWithTestCaseSourceTests.cs" />
     <Compile Include="MorseCodeDecoderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

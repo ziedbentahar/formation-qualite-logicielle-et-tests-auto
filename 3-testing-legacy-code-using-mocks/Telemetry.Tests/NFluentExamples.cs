@@ -8,7 +8,6 @@ namespace Telemetry.Tests
 {
     class NFluentExamples
     {
-        //credit: some examples taken from : http://www.n-fluent.net/
         void Some_nfluent_examples()
         {
             var integers = new int[] { 1, 2, 3, 4, 5, 666 };
@@ -27,6 +26,8 @@ namespace Telemetry.Tests
 
             var heroes = "Batman and Robin";
             Check.That(heroes).Not.Contains("Joker").And.StartsWith("Bat").And.Contains("Robin");
+
+            Check.That(heroes).EndsWith("Robin").And.IsNotEmpty().And.HasFirstElement().Which.IsADigit().And.IsSameLetterButWithDifferentCaseAs("r");
             
         }
     }

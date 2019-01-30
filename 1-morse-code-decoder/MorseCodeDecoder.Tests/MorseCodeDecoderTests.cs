@@ -7,25 +7,17 @@ namespace MorseCodeDecoder.Tests
     [TestFixture]
     public class MorseCodeDecoderTests
     {  
-        [TestCaseSource(nameof(MorseCodeCases))]
-        public void Decode_should_return_correct_text(string morseCode, string exepectedText)
+        public void Decode_should_return_correct_text()
         {
             //Arrange
             Decoder morseCodeDecoder = new Decoder();
 
             //Act
-            var text = morseCodeDecoder.Decode(morseCode);
+            var text = morseCodeDecoder.Decode("..-. --- --- ....... -... .- .-.");
 
             //Assert
-            Assert.That(text == exepectedText, () => "Morse code not decoded correctly");
+            Assert.That(text == "FOO BAR", () => "Morse code not decoded correctly");
         }
-
-        static object[] MorseCodeCases =
-        {
-            new object[] { ".... . .-.. .-.. --- ....... .-- --- .-. .-.. -..", "HELLO WORLD" },
-            new object[] { "..-. --- --- ....... -... .- .-.", "FOO BAR" },
-            new object[] { "..- ... .. -. --. ....... - . ... - ....... -.-. .- ... .", "USING TEST CASE" }
-        };
 
         [Test]
         public void Decode_should_throw_not_supported_exception_when_provided_text_is_null_or_empty()
