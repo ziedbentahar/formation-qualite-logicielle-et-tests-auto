@@ -2,11 +2,32 @@
 
 namespace AutomaticLightSwitcher
 {
+    public interface IDateTimeWrapper
+    {
+        DateTime Now { get; }
+    }
+
+    public sealed class RuntimeDateTime : IDateTimeWrapper
+    {
+        public DateTime Now
+        {
+            get { return DateTime.Now; }
+        }
+    }
+
+
     class LightSwitcherController
     {
+        private readonly IDateTimeWrapper _dateTimeWrapper;
+
+        public LightSwitcherController(IDateTimeWrapper dateTimeWrapper)
+        {
+            _dateTimeWrapper = dateTimeWrapper;
+        }
+
         public void Actuate()
         {
-            var dateTime = DateTime.Now;
+            var dateTime = _dateTimeWrapper.Now;
 
             var timeOfTheDay = GetTimeOfTheDay(dateTime);
 
@@ -32,6 +53,7 @@ namespace AutomaticLightSwitcher
             }
             if (dateTime.Hour >= 12 && dateTime.Hour < 18)
             {
+
                 return "Noon";
             }
             return "Evening";

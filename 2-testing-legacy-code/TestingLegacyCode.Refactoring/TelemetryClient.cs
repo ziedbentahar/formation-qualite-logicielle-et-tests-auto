@@ -3,6 +3,21 @@ using System;
 
 namespace Telemetry.Services
 {
+    public class ProcessorConfiguration
+    {
+        public static ITelemetryProcessor CreateProcessorByKind(string kind)
+        {
+            switch (kind)
+            {
+                case "Temperature":
+                    return new TemperatureProcessor();
+                case "Pressure":
+                    return new PressureProcessor();
+                default:
+                    return new ErrorProcessor();
+            }
+        }
+    }
 
 
     public class TelemetryClient
@@ -45,6 +60,15 @@ namespace Telemetry.Services
         public void Stop()
         {
             _scheduler.Stop();
+        }
+    }
+
+
+    public class Program
+    {
+        void Main()
+        {
+            var telemetryClient = new TelemetryClient(new TelemetryCollector(), null, ProcessorConfiguration.CreateProcessorByKind); 
         }
     }
 }

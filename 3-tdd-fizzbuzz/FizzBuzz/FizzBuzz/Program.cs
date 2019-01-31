@@ -12,4 +12,20 @@ namespace FizzBuzz
 
         }
     }
+
+    public class FizzBuzzService
+    {
+        public string GetValue(int number)
+        {
+            if (number % 3 == 0 && number % 5 == 0)
+                return "fizzBuzz";
+            if (number % 3 == 0)
+                return "fizz";
+            if (number % 5 == 0)
+                return "buzz";
+
+            return number.ToString();
+
+        }
+    }
 }

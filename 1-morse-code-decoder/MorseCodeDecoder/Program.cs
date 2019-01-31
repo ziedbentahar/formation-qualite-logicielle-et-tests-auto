@@ -10,6 +10,7 @@ namespace MorseCodeDecoder
     {
         static void Main(string[] args)
         {
+            var csvHelper = new CsvHelper.Factory();
         }
     }
 }

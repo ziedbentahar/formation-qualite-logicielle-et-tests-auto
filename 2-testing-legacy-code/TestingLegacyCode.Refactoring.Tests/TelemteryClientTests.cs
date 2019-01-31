@@ -60,6 +60,7 @@ namespace TestingLegacyCode.Refactoring.Tests
             //Arrange
             var fakeTelemetryProcessor = new FakeTelemetryProcessor();
             var fakeTelemetryCollector = new FakeTelemetryCollector();
+
             fakeTelemetryCollector.ExptectedTelemetryData = new[]
             {
                 new TelemetryData { Kind = "Pressure", Value = "10 psi"},

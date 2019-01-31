@@ -5,8 +5,9 @@ using System.Collections.Generic;
 namespace MorseCodeDecoder.Tests
 {
     [TestFixture]
-    public class MorseCodeDecoderTests
+    public class DecoderTests
     {  
+        [Test]
         public void Decode_should_return_correct_text()
         {
             //Arrange

@@ -51,7 +51,7 @@ namespace MorseCodeDecoder
 
         public string Decode(string morseCode)
         {
-            if (string.IsNullOrEmpty(morseCode))
+            if (!string.IsNullOrEmpty(morseCode))
                 throw new NotSupportedException();
            
            return string.Join("", morseCode.Split(' ').Select(code => MorseToLetter[code]));

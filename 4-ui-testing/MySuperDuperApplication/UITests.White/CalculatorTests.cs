@@ -20,6 +20,7 @@ namespace UITests.White
                 var windows = application.GetWindows();
             
                 var window = windows.Find(x => x.Id == "frmCalculator");
+                
                 var operand1 = window.Get<TextBox>(SearchCriteria.ByAutomationId("txtOperand1"));
                 operand1.SetValue("6");
 
